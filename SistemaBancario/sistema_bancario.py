@@ -6,12 +6,60 @@ import menu
 import usuario
 import contas
 
-menu = '''
+# Versão 2
+menu = menu.menu()
+
+def main():
+    LIMITE_SAQUES = 3
+    AGENCIA = '0001'
+
+    saldo = 0
+    limite = 500
+    extrato = ''
+    numero_saques = 0
+    usuarios = []
+    contas = []
+
+    while True:
+        opcao = input(menu)
+
+        match opcao:
+
+            case 'd':
+                valor = float(input('Informe o valor do depósito: '))
+                saldo, extrato = depositar.depositar(saldo, valor, extrato)
+            case 's':
+                valor = float(input('Informe o valor do saque: '))
+                saldo, extrato = sacar(saldo=saldo, valor=valor, extrato=extrato, limite=limite, numero_saques=numero_saques,limite_saques=LIMITE_SAQUES)
+            case 'e':
+                extrato.exibir_extrato(saldo, extrato=extrato)
+            case 'nu':
+                usuario.criar_usuario(usuarios)
+            case 'nc':
+                numero_conta = len(contas) + 1
+                conta = contas.criar_conta(AGENCIA, numero_conta, usuarios)
+
+                if conta:
+                    contas.append(conta)
+
+            case 'lc':
+                contas.listar_contas(contas)
+            case 'q':
+                break
+            case _:
+                print('Operação inválida, por favor selecione novamente a operação desejada.')
+
+if __name__ == '__main__':
+    main()
+
+'''
+# Versão 1
+
+menu =
 [d] Depositar
 [s] Sacar
 [e] Extrato
 [q] Sair
-'''
 
 if __name__ == '__main__':
     conta = class_conta.class_conta()
@@ -55,3 +103,4 @@ if __name__ == '__main__':
                 break
             case _:
                 print('Operação inválida, por favor selecione novamente a operação desejada.')
+'''
