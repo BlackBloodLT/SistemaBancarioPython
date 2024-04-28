@@ -7,32 +7,35 @@ import usuario
 import contas
 
 # Versão 2
-menu = menu.menu()
+
 
 def main():
+    menuu = menu.menu()
+
     LIMITE_SAQUES = 3
     AGENCIA = '0001'
 
     saldo = 0
     limite = 500
-    extrato = ''
+    extrat = ''
     numero_saques = 0
     usuarios = []
     contas = []
 
     while True:
-        opcao = input(menu)
+        print(menuu)
+        opcao = input('Qual a opção?')
 
         match opcao:
 
             case 'd':
                 valor = float(input('Informe o valor do depósito: '))
-                saldo, extrato = depositar.depositar(saldo, valor, extrato)
+                saldo, extrat = depositar.depositar(saldo, valor, extrat)
             case 's':
                 valor = float(input('Informe o valor do saque: '))
-                saldo, extrato = sacar(saldo=saldo, valor=valor, extrato=extrato, limite=limite, numero_saques=numero_saques,limite_saques=LIMITE_SAQUES)
+                saldo, extrat = sacar.sacar(saldo=saldo, valor=valor, extrato=extrat, limite=limite, numero_saques=numero_saques,limite_saques=LIMITE_SAQUES)
             case 'e':
-                extrato.exibir_extrato(saldo, extrato=extrato)
+                extrato.exibir_extrato(saldo, extrato=extrat)
             case 'nu':
                 usuario.criar_usuario(usuarios)
             case 'nc':
