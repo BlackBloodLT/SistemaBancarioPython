@@ -2,6 +2,9 @@ import class_conta
 import depositar
 import sacar
 import extrato
+import menu
+import usuario
+import contas
 
 menu = '''
 [d] Depositar

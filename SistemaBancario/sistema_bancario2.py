@@ -1,3 +1,7 @@
+# Este é o código que deve ser usado como base para a produção do código final
+# Este código foi retirado do GitHub do DIO
+# Editar o arquivo sistema_bancario.py
+
 import textwrap
 
 
